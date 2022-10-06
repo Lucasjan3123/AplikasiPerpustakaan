@@ -8,9 +8,12 @@ import javax.persistence.Column;
 @Getter
 @Setter
 public class PenerbitDTO {
-    private Integer penerbit_id;
+    private Integer id;
+
     private String nama;
+
     private String alamat;
+
     private String telp;
 
 }

@@ -28,4 +28,10 @@ public class User {
     @Column(columnDefinition = "VARCHAR(255)")
     private String role;
 
+    @OneToOne(mappedBy = "user")
+    private Anggota anggota;
+
+    @OneToOne(mappedBy = "user")
+    private Petugas petugas;
+
 }

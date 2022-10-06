@@ -7,12 +7,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PetugasDTO {
-    private Integer petugas_id;
+    private Integer id;
 
     private String nama;
 
     private String telp;
 
     private String alamat;
+
+    private UserDTO user;
+
 
 }

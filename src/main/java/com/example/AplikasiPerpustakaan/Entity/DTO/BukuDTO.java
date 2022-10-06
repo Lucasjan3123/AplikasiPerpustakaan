@@ -8,7 +8,7 @@ import javax.persistence.Column;
 @Setter
 public class BukuDTO
 {
-    private Integer buku_id;
+    private Integer id;
 
     private String judul;
 
@@ -17,5 +17,9 @@ public class BukuDTO
     private Integer jumlah;
 
     private String isbn;
+
+    private PengarangDTO pengarang;
+
+    private PenerbitDTO penerbit;
 
 }

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "petugas")
@@ -14,7 +15,7 @@ import javax.persistence.*;
 public class Petugas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer petugas_id;
+    private Integer id;
 
     @Column(columnDefinition = "VARCHAR(255)")
     private String nama;
@@ -24,6 +25,16 @@ public class Petugas {
 
     @Column(columnDefinition = "TINYTEXT")
     private String alamat;
+
+    @OneToMany(mappedBy = "petugas")
+    private List<Pengembalian> pengembalianList;
+
+    @OneToMany(mappedBy = "petugas")
+    private List<Peminjaman> peminjamanList;
+
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }

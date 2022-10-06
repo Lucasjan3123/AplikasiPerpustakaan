@@ -10,11 +10,11 @@ public interface AnggotaService {
 
     List<AnggotaDTO> findAllData();
 
-    AnggotaDTO update(AnggotaDTO param, Integer Anggota_id);
+    AnggotaDTO update(AnggotaDTO param, Integer id);
 
-    Boolean delete(Integer Anggota_id);
+    Boolean delete(Integer id);
 
-    AnggotaDTO findById(Integer Anggota_id);
+    AnggotaDTO findById(Integer id);
 
 
 

@@ -8,10 +8,16 @@ import java.util.Date;
 @Getter
 @Setter
 public class PeminjamanDTO {
-    private Integer peminjaman_id;
+    private Integer id;
 
     private Date tgl_pinjam;
 
     private Date tgl_kembali;
+
+    private AnggotaDTO anggota;
+
+    private PetugasDTO petugas;
+
+
 
 }

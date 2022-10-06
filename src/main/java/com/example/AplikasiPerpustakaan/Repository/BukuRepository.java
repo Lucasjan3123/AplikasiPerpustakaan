@@ -6,5 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BukuRepository extends JpaRepository<Buku,Integer> {
+List<Buku>findBukuByPeminjamanId(Integer PeminjamanId);
+    List<Buku>findBukuByPengembalianId(Integer PengembalianId);
 
 }
