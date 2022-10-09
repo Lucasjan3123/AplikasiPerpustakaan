@@ -1,7 +1,5 @@
 package com.example.AplikasiPerpustakaan.Service;
 
-import com.example.AplikasiPerpustakaan.Entity.Buku;
-import com.example.AplikasiPerpustakaan.Entity.DTO.AnggotaDTO;
 import com.example.AplikasiPerpustakaan.Entity.DTO.BukuDTO;
 
 import java.util.List;
@@ -11,11 +9,11 @@ public interface BukuService {
 
     List<BukuDTO> findAllData();
 
-    BukuDTO update(BukuDTO param, Integer id);
+    BukuDTO update(BukuDTO param, Integer Id);
 
-    Boolean delete(Integer id);
+    Boolean delete(Integer Id);
 
-    BukuDTO findById(Integer id);
+    BukuDTO findById(Integer Id);
 
 
 }

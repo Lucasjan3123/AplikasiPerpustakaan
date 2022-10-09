@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "pengembalian")
+@Table(name = "pengembalians")
 @Getter
 @Setter
 @NoArgsConstructor

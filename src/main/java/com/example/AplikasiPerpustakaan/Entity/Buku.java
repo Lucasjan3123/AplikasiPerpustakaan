@@ -6,10 +6,11 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "buku")
+@Table(name = "bukus")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +18,7 @@ import java.util.Set;
 public class Buku {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer ID;
 
     @Column(columnDefinition = "VARCHAR(255)")
     private String judul;
@@ -40,10 +41,20 @@ public class Buku {
     private Penerbit penerbit;
 
     @ManyToMany (mappedBy = "buku", fetch = FetchType.LAZY)
-    private Set<Peminjaman> peminjaman = new HashSet<>();
+    private Set<Peminjaman> peminjaman ;
+
+
 
     @ManyToMany (mappedBy = "buku", fetch = FetchType.LAZY)
     private Set<Pengembalian> pengembalian  = new HashSet<>();
+
+    @OneToMany(mappedBy = "buku")
+    private List<PeminjamanDetail> detail;
+
+    @OneToMany(mappedBy = "buku")
+    private List<PengembalianDetail> details;
+
+
 
 
 }

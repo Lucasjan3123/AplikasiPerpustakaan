@@ -30,10 +30,10 @@ public class BukuController {
 
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateData(@PathVariable Integer id,
+    @PutMapping("/update/{Id}")
+    public ResponseEntity<?> updateData(@PathVariable Integer Id,
                                         @RequestBody BukuDTO param){
-        BukuDTO data = Service.update(param, id);
+        BukuDTO data = Service.update(param, Id);
 
         if (data != null) {
             return new ResponseEntity<>(data, HttpStatus.OK);
@@ -42,20 +42,20 @@ public class BukuController {
         }
     }
 
-    @GetMapping("/find-by-id/{id}")
-    public Response findById(@PathVariable Integer id){
-        return new Response(Service.findById(id), "berhasil mengambil data",HttpStatus.OK);
+    @GetMapping("/find-by-id/{Id}")
+    public Response findById(@PathVariable Integer Id){
+        return new Response(Service.findById(Id), "berhasil mengambil data",HttpStatus.OK);
     }
 
     @GetMapping("/find-by-id")
-    public ResponseEntity<?> findById2(@RequestParam(name = "id") Integer id){
-        return new ResponseEntity<>(Service.findById(id), HttpStatus.OK);
+    public ResponseEntity<?> findById2(@RequestParam(name = "Id") Integer Id){
+        return new ResponseEntity<>(Service.findById(Id), HttpStatus.OK);
 
     }
 
-    @DeleteMapping("/delete/{id}")
-    public Response deleteData(@PathVariable Integer id) {
-        if (Service.delete(id)) {
+    @DeleteMapping("/delete/{Id}")
+    public Response deleteData(@PathVariable Integer Id) {
+        if (Service.delete(Id)) {
             return new Response( "data berhasil dihapus",HttpStatus.OK);
         } else {
             return new Response(  "data berhasil dihapus",HttpStatus.BAD_REQUEST);

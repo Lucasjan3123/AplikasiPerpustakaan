@@ -5,9 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,10 +29,10 @@ public class User {
     @Column(columnDefinition = "VARCHAR(255)")
     private String role;
 
-    @OneToOne(mappedBy = "user")
-    private Anggota anggota;
+    @OneToMany(mappedBy = "user")
+    private List<Anggota> anggota;
 
-    @OneToOne(mappedBy = "user")
-    private Petugas petugas;
+    @OneToMany(mappedBy = "user")
+    private List <Petugas> petugas;
 
 }

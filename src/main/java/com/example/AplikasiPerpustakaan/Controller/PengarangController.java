@@ -1,10 +1,7 @@
 package com.example.AplikasiPerpustakaan.Controller;
 
 import com.example.AplikasiPerpustakaan.Common.Response;
-import com.example.AplikasiPerpustakaan.Entity.DTO.AnggotaDTO;
 import com.example.AplikasiPerpustakaan.Entity.DTO.PengarangDTO;
-import com.example.AplikasiPerpustakaan.Entity.Pengarang;
-import com.example.AplikasiPerpustakaan.Service.Impl.AnggotaServiceImpl;
 import com.example.AplikasiPerpustakaan.Service.Impl.PengarangServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

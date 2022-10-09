@@ -2,8 +2,6 @@ package com.example.AplikasiPerpustakaan.Entity.Mapping;
 
 import com.example.AplikasiPerpustakaan.Entity.Buku;
 import com.example.AplikasiPerpustakaan.Entity.DTO.BukuDTO;
-import com.example.AplikasiPerpustakaan.Entity.DTO.UserDTO;
-import com.example.AplikasiPerpustakaan.Entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

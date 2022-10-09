@@ -2,8 +2,11 @@ package com.example.AplikasiPerpustakaan.Service.Impl;
 
 import com.example.AplikasiPerpustakaan.Entity.DTO.PetugasDTO;
 import com.example.AplikasiPerpustakaan.Entity.Mapping.PetugasMapping;
+import com.example.AplikasiPerpustakaan.Entity.Mapping.UserMapping;
 import com.example.AplikasiPerpustakaan.Entity.Petugas;
+import com.example.AplikasiPerpustakaan.Entity.User;
 import com.example.AplikasiPerpustakaan.Repository.PetugasRepository;
+import com.example.AplikasiPerpustakaan.Repository.UserRepository;
 import com.example.AplikasiPerpustakaan.Service.PetugasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +18,24 @@ public class PetugasServiceImpl implements PetugasService {
     @Autowired
     private PetugasRepository repository;
 
+    @Autowired
+    private UserRepository UserRepository;
+
+
 
     @Override
     public PetugasDTO save(PetugasDTO param) {
+        User user = UserMapping.instance.toEntity(param.getUser());
+
         Petugas data = repository.save(PetugasMapping.instance.toEntity(param));
+
+
+        if (param.getUser() != null) {
+            user = UserRepository.save(user);
+
+            data.getUser().setId_user(user.getId_user());
+        }
+        data = repository.save(data);
         return PetugasMapping.instance.toDto(data);
 
     }

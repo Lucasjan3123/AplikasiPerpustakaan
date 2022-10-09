@@ -17,7 +17,8 @@ public class AnggotaDTO {
 
     private String telp;
 
-    private AnggotaDTO anggota;
+    private UserDTO user;
+
 
 
 }

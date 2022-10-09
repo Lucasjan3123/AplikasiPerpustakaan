@@ -3,7 +3,10 @@ package com.example.AplikasiPerpustakaan.Service.Impl;
 import com.example.AplikasiPerpustakaan.Entity.Anggota;
 import com.example.AplikasiPerpustakaan.Entity.DTO.AnggotaDTO;
 import com.example.AplikasiPerpustakaan.Entity.Mapping.AnggotaMapping;
+import com.example.AplikasiPerpustakaan.Entity.Mapping.UserMapping;
+import com.example.AplikasiPerpustakaan.Entity.User;
 import com.example.AplikasiPerpustakaan.Repository.AnggotaRepository;
+import com.example.AplikasiPerpustakaan.Repository.UserRepository;
 import com.example.AplikasiPerpustakaan.Service.AnggotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +18,22 @@ public class AnggotaServiceImpl implements AnggotaService {
     @Autowired
     private AnggotaRepository repository;
 
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public AnggotaDTO save(AnggotaDTO param) {
+        User user = UserMapping.instance.toEntity(param.getUser());
+
         Anggota data = repository.save(AnggotaMapping.instance.toEntity(param));
+
+
+        if (param.getUser() != null) {
+            user = userRepository.save(user);
+
+            data.getUser().setId_user(user.getId_user());
+        }
+        data = repository.save(data);
         return AnggotaMapping.instance.toDto(data);
     }
 

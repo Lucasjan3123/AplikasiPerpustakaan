@@ -1,9 +1,7 @@
 package com.example.AplikasiPerpustakaan.Service.Impl;
 
 import com.example.AplikasiPerpustakaan.Entity.DTO.PengarangDTO;
-import com.example.AplikasiPerpustakaan.Entity.Mapping.PenerbitMapping;
 import com.example.AplikasiPerpustakaan.Entity.Mapping.PengarangMapping;
-import com.example.AplikasiPerpustakaan.Entity.Penerbit;
 import com.example.AplikasiPerpustakaan.Entity.Pengarang;
 import com.example.AplikasiPerpustakaan.Repository.PengarangRepository;
 import com.example.AplikasiPerpustakaan.Service.PengarangService;

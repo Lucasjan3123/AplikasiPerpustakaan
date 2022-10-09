@@ -3,12 +3,11 @@ package com.example.AplikasiPerpustakaan.Entity.DTO;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 @Getter
 @Setter
 public class BukuDTO
 {
-    private Integer id;
+    private Integer ID;
 
     private String judul;
 

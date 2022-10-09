@@ -1,10 +1,7 @@
 package com.example.AplikasiPerpustakaan.Service.Impl;
 
-import com.example.AplikasiPerpustakaan.Entity.DTO.PeminjamanDTO;
 import com.example.AplikasiPerpustakaan.Entity.DTO.PenerbitDTO;
-import com.example.AplikasiPerpustakaan.Entity.Mapping.PeminjamanMapping;
 import com.example.AplikasiPerpustakaan.Entity.Mapping.PenerbitMapping;
-import com.example.AplikasiPerpustakaan.Entity.Peminjaman;
 import com.example.AplikasiPerpustakaan.Entity.Penerbit;
 import com.example.AplikasiPerpustakaan.Repository.PenerbitRepository;
 import com.example.AplikasiPerpustakaan.Service.PenerbitService;

@@ -4,8 +4,12 @@ import com.example.AplikasiPerpustakaan.Entity.Anggota;
 import com.example.AplikasiPerpustakaan.Entity.DTO.PeminjamanDTO;
 import com.example.AplikasiPerpustakaan.Entity.Mapping.AnggotaMapping;
 import com.example.AplikasiPerpustakaan.Entity.Mapping.PeminjamanMapping;
+import com.example.AplikasiPerpustakaan.Entity.Mapping.PetugasMapping;
 import com.example.AplikasiPerpustakaan.Entity.Peminjaman;
+import com.example.AplikasiPerpustakaan.Entity.Petugas;
+import com.example.AplikasiPerpustakaan.Repository.AnggotaRepository;
 import com.example.AplikasiPerpustakaan.Repository.PeminjamanRepository;
+import com.example.AplikasiPerpustakaan.Repository.PetugasRepository;
 import com.example.AplikasiPerpustakaan.Service.PeminjamanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +21,35 @@ public class PeminjamanServiceImpl implements PeminjamanService {
     @Autowired
     private PeminjamanRepository repository;
 
+    @Autowired
+    private AnggotaRepository anggotaRepository;
+
+    @Autowired
+    private PetugasRepository petugasRepository;
+
+
     @Override
     public PeminjamanDTO save(PeminjamanDTO param) {
-        Peminjaman data = repository.save(PeminjamanMapping.instance.toEntity(param));
-        return PeminjamanMapping.instance.toDto(data);
 
+       Anggota anggota = AnggotaMapping.instance.toEntity(param.getAnggota());
+
+        Peminjaman data = PeminjamanMapping.instance.toEntity(param);
+
+        if (param.getAnggota() != null) {
+            anggota = anggotaRepository.save(anggota);
+
+            data.getAnggota().setId(anggota.getId());
+        }
+        Petugas petugas = PetugasMapping.instance.toEntity(param.getPetugas());
+        if (param.getPetugas() != null) {
+            petugas = petugasRepository.save(petugas);
+
+            data.getPetugas().setId(petugas.getId());
+        }
+
+        data = repository.save(data);
+
+        return PeminjamanMapping.instance.toDto(data);
     }
 
     @Override

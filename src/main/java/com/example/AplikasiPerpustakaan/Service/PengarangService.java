@@ -1,8 +1,6 @@
 package com.example.AplikasiPerpustakaan.Service;
 
-import com.example.AplikasiPerpustakaan.Entity.DTO.PenerbitDTO;
 import com.example.AplikasiPerpustakaan.Entity.DTO.PengarangDTO;
-import com.example.AplikasiPerpustakaan.Entity.Pengarang;
 
 import java.util.List;
 

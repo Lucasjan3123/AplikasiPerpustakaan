@@ -1,7 +1,6 @@
 package com.example.AplikasiPerpustakaan.Entity.Mapping;
 
-import com.example.AplikasiPerpustakaan.Entity.Anggota;
-import com.example.AplikasiPerpustakaan.Entity.DTO.AnggotaDTO;
+import com.example.AplikasiPerpustakaan.Entity.DTO.ResponAuthDTO;
 import com.example.AplikasiPerpustakaan.Entity.DTO.UserDTO;
 import com.example.AplikasiPerpustakaan.Entity.User;
 import org.mapstruct.Mapper;
@@ -15,5 +14,8 @@ public interface UserMapping {
     UserDTO toDto(User param);
 
     List<UserDTO> toListDto(List<User>userList);
+    ResponAuthDTO fromEntityToResponseDto(User data);
+
+    ResponAuthDTO fromDtoToResponseDto(UserDTO data);
 
 }

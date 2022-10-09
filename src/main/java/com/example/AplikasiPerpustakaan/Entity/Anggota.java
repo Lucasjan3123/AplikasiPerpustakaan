@@ -8,14 +8,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "anggota")
+@Table(name = "anggotas")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Anggota {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idaa;
+    private Integer id;
 
     @Column(columnDefinition = "VARCHAR(255)")
     private String nama;
@@ -35,7 +35,7 @@ public class Anggota {
     @OneToMany(mappedBy = "anggota")
     private List<Pengembalian> pengembalianList;
 
-    @OneToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
 }
